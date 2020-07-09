@@ -1,0 +1,61 @@
+# There are several mandatory fields (#mandatory), and many more that are optional (#optional).
+# The overall format is standard TOML format, v0.5.0.
+# Note that there are a couple of TOML lists in this file.
+# Find more information on toml format here:  https://github.com/toml-lang/toml
+# The name of the mod loader type to load - for regular FML @Mod mods it should be javafml
+modLoader="javafml" #mandatory
+# A version range to match for said mod loader - for regular FML @Mod it will be the forge version
+loaderVersion="[31,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
+# A URL to refer people to when problems occur with this mod
+#issueTrackerURL="http://my.issue.tracker/" #optional
+# A list of mods - how many allowed here is determined by the individual mod loader
+[[mods]] #mandatory
+# The modid of the mod
+modId="incobalts_roleplaychat" #mandatory
+# The version number of the mod - there's a few well known ${} variables useable here or just hardcode it
+version="${file.jarVersion}" #mandatory
+ # A display name for the mod
+displayName="incobalt's Roleplay Chat" #mandatory
+# A URL to query for updates for this mod. See the JSON update specification <here>
+#updateJSONURL="http://myurl.me/" #optional
+# A URL for the "homepage" for this mod, displayed in the mod UI
+#displayURL="http://example.com/" #optional
+# A file name (in the root of the mod JAR) containing a logo for display
+#logoFile="rpchat.png" #optional
+# A text field displayed in the mod UI
+#credits="Thanks for this example mod goes to Java" #optional
+# A text field displayed in the mod UI
+authors="incobalt" #optional
+# The description text for the mod (multi line!) (#mandatory)
+description='''
+incobalt's Roleplay Chat
+    A chat modification that facilitates RL/roleplaying play. Largely features distance-based chat to keep chat localized to an area. Adds commands to simulate raising (/shout) and lowering (/whisper) your voice, and an admin command to send a message to everyone on the server (/broadcast). Chat color codes are also implemented with &, but this is restricted to a configurable permission level.
+    Also included is a missive system that replaces Minecraft's /msg command. Missives greatly restrict long-range messaging to a time-based system that optionally uses resources.
+    incobalt's Roleplay Chat was inspired by a streamed roleplay Spigot server experience that could not be replicated by existing Forge mods. It is heavily commented to serve as a learning resource!
+    As a note: This mod can be deployed server side only and works with both vanilla and Forge clients when doing so. Commands and chat symbols work perfectly from the server. If you deploy server side only and want to use Missive items, you need to configure the mod to use server-side item checking (in the Missive section).
+'''
+# A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
+[[dependencies.incobalts_roleplaychat]]
+    modId="incobalts_coreapi"
+    mandatory=true
+    versionRange="[1.0]"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.ic_roleplaychat]] #optional
+    # the modid of the dependency
+    modId="forge" #mandatory
+    # Does this dependency have to exist - if not, ordering below must be specified
+    mandatory=true #mandatory
+    # The version range of the dependency
+    versionRange="[31,)" #mandatory
+    # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
+    ordering="NONE"
+    # Side this dependency is applied on - BOTH, CLIENT or SERVER
+    side="BOTH"
+# Here's another dependency
+[[dependencies.incobalts_roleplaychat]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.15.2]"
+    ordering="NONE"
+    side="BOTH"
