@@ -1,0 +1,68 @@
+
+#Ranges, command, and symbol chat hooks
+["Distance Chat Settings"]
+	#Enable the distance chat system.
+	"Enable Distance Chat" = true
+	#Range (in blocks) regular chat is fully readable. Chat is obfuscated up to twice this range. Emotes are visible to this range. Shouts are three times this range.
+	#Range: 1.0 ~ 256.0
+	"Distance Chat Range" = 15.0
+	#Determines if §k (obfuscated text) is used to muffle chat beyond distance chat range.
+	"Use Obfuscation for Muffle" = true
+	#If not using obfuscation, what character replaces text when muffled?
+	"Muffle Character" = "."
+	#Range (in blocks) whispers can be heard. Players 1 block outside of this range see '*Playername whispers.'
+	#Range: 1.0 ~ 256.0
+	"Whisper Range" = 2.0
+	#Creates /shout, /whisper, and /emote (Roleplay chat can be used commandless!)
+	"Create Distance Chat Commands" = true
+	#Capture and redirect vanilla the commands /say, /w, and /me (only if Create Commands is true!)
+	"Redirect Vanilla Commands" = false
+
+#Missives are an alternative to /mgs that sends messages over time.
+["Missive System"]
+	#Enable missive system for allowing players to send messages long-distance under certain conditions.
+	"Enable Missives" = true
+	#The number of blocks to travel per time unit (set below)
+	#Range: 1.0 ~ 10000.0
+	"Missive Distance" = 100.0
+	#The amount of time in seconds it takes to travel the above amount of blocks
+	#Range: 1.0 ~ 10000.0
+	"Missive Duration" = 3.0
+	#Creates /missive for sending missives (missives can use chat symbols to remain commandless)
+	"Create Missive Commands" = true
+	#Redirects /msg and /tell to the /missive command (and /w if not redirected by distance chat settings). Only if /missive is created.
+	"Redirect Missive Commands" = true
+	#When a *player* sends a missive do they need an item to do it?
+	"Missives Use Items" = true
+	#This keeps the task of checking items on the server, which can allow you to have missive items and deploy the mod server only. This can cause a performance hit to the server!
+	"Missive Item Processing on Server" = false
+	#Missives use up one of these, unless holding a catalyst. Order: held first then left to right. Use [] to not have any consumable items.
+	"Consumed Items" = ["minecraft:paper"]
+	#When holding one of these, missives don't consume items. Use [] to not have any catalysts.
+	"Catalyst Items" = ["minecraft:writable_book"]
+
+#Chat messages that start with these symbols are converted to shout, emotes, whispers, or broadcasts. Does not affect the /say command!
+["Chat Symbols"]
+	#This setting enables chat symbol conversion.
+	"Use Chat Symbols" = true
+	#Chat messages starting with this character will be converted to shouts.
+	"Shout Character" = "!"
+	#Chat messages starting with this character will be converted to emotes.
+	"Emote Character" = "*"
+	#Chat messages starting with this character will be converted to whispers.
+	"Whisper Character" = "_"
+	#Chat messages starting with this character will be converted to missives.
+	"Broadcast Character" = ">"
+
+#Various parts of this mod can be restricted to permission levels. These are all defaulted to level 2 (op is 4).
+[Permissions]
+	#Permission level required for players to be able to use color codes in chat commands using & in place of §.
+	#Range: > 0
+	"Color Permission Level" = 2
+	#Permission level required for players to be able to use the /broadcast command, sending a message to everyone on the server.
+	#Range: > 0
+	"Broadcast Permission Level" = 2
+	#Permission level required for players to be able to use the /tell, /msg, and /w vanilla commands, unless redirected
+	#Range: > 0
+	"Tell Permission Level" = 2
+
